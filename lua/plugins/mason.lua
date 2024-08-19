@@ -1,0 +1,65 @@
+return {
+	{
+		"williamboman/mason.nvim",
+		event = "VeryLazy",
+		cmd = {
+			"Mason",
+			"MasonInstall",
+			"MasonUninstall",
+			"MasonUninstallAll",
+			"MasonLog",
+		},
+		opts = {},
+		build = ":MasonUpdate",
+	},
+
+	{
+		"WhoIsSethDaniel/mason-tool-installer.nvim",
+		event = "VeryLazy",
+		cmd = {
+			"MasonToolsInstall",
+			"MasonToolsInstallSync",
+			"MasonToolsUpdate",
+			"MasonToolsUpdateSync",
+			"MasonToolsClean",
+		},
+		opts = {
+			ensure_installed = {
+				"iferr",
+				"impl",
+				"goimports",
+				"gofumpt",
+				"golines",
+				"golangci-lint",
+				"stylua",
+				"rustfmt",
+				"yamllint",
+				"shellcheck",
+				"eslint",
+				"clang-format",
+				"ansible-lint",
+				"vale",
+				"luacheck",
+				"tree-sitter-cli",
+			},
+		},
+	},
+	{
+		"williamboman/mason-lspconfig.nvim",
+		event = "VeryLazy",
+		cmd = { "LspInstall", "LspUninstall" },
+		opts = {
+			ensure_installed = {
+				"lua_ls",
+				"rust_analyzer",
+				"gopls",
+				"texlab",
+				"jedi_language_server",
+				"clangd",
+				"asm_lsp",
+				"ansiblels",
+				"neocmake",
+			},
+		},
+	},
+}
