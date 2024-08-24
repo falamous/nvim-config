@@ -4,10 +4,10 @@ return {
 		keys = {
 			{ "gcc", desc = "Comment toggle current line" },
 			{ "gbc", desc = "Comment toggle current block" },
-			{ "gc", desc = "Comment toggle linewise" },
-			{ "gb", desc = "Comment toggle blockwise" },
-			{ "gc", desc = "Comment toggle linewise (visual)" },
-			{ "gb", desc = "Comment toggle blockwise (visual)" },
+			{ "gc",  desc = "Comment toggle linewise" },
+			{ "gb",  desc = "Comment toggle blockwise" },
+			{ "gc",  desc = "Comment toggle linewise (visual)" },
+			{ "gb",  desc = "Comment toggle blockwise (visual)" },
 			{ "gco", desc = "Comment insert below" },
 			{ "gcO", desc = "Comment insert above" },
 			{ "gcA", desc = "Comment insert end of line" },
@@ -44,5 +44,11 @@ return {
 				changedelete = { text = "▎" },
 			},
 		},
+	},
+	{
+		lazy = false,
+		'nmac427/guess-indent.nvim',
+		cmd = "GuessIndent",
+		config = function() require('guess-indent').setup {} end,
 	},
 }
