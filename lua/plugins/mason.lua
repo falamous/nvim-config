@@ -40,6 +40,7 @@ return {
 				"ansible-lint",
 				"vale",
 				"luacheck",
+				"black",
 				"tree-sitter-cli",
 			},
 		},
