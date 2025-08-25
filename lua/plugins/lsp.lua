@@ -21,6 +21,13 @@ return {
 				end,
 				desc = "Goto Implementation",
 			},
+			{
+				"ge",
+				function()
+					vim.diagnostic.open_float(nil, { focus = false })
+				end,
+				desc = "Show diagnostic",
+			},
 			-- { "gy", function() require("telescope.builtin").lsp_type_definitions({ reuse_win = true }) end, desc = "Goto T[y]pe Definition" },
 		},
 	},
@@ -29,7 +36,7 @@ return {
 		event = "VeryLazy",
 		keys = {
 			{ "gy", vim.lsp.buf.rename, desc = "Goto T[y]pe Definition" },
-			{ "gh", vim.lsp.buf.signature_help, desc = "Signature Help" },
+			{ "gh", vim.lsp.buf.hover, desc = "Signature Help" },
 		},
 	},
 	-- auto completion
@@ -65,6 +72,7 @@ return {
 					["<CR>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
 				}),
 				sources = cmp.config.sources({
+					{ name = "copilot" },
 					{ name = "nvim_lsp" },
 					{ name = "path" },
 					{ name = "nvim_lsp_signature_help" },
@@ -197,4 +205,20 @@ return {
 		"petRUShka/vim-sage",
 		ft = "sage",
 	},
+	-- {
+	-- 	"zbirenbaum/copilot-cmp",
+	-- 	dependencies = {
+	-- 		{
+	-- 			"zbirenbaum/copilot.lua",
+	-- 			opts = {
+	-- 				suggestion = { enabled = false },
+	-- 				panel = { enabled = false },
+	-- 			},
+	-- 		},
+	-- 	},
+	-- 	-- Event = "InsertAfter",
+	-- 	config = function()
+	-- 		require("copilot_cmp").setup()
+	-- 	end,
+	-- },
 }
