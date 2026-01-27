@@ -1,7 +1,8 @@
 return {
 	"nvim-treesitter/nvim-treesitter",
-	dependencies = { { "nvim-treesitter/nvim-treesitter-textobjects", lazy = true } },
-	event = { "VeryLazy", "User" },
+	branch = "master",
+	dependencies = { "nvim-treesitter/nvim-treesitter-textobjects" },
+	event = { "BufReadPost", "BufNewFile" },
 	cmd = {
 		"TSBufDisable",
 		"TSBufEnable",
@@ -30,7 +31,6 @@ return {
 				"query",
 				"vim",
 				"vimdoc",
-				"python",
 				"cpp",
 				"rust",
 				"typescript",

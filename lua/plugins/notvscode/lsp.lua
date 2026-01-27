@@ -43,7 +43,7 @@ return {
 	{
 		"hrsh7th/nvim-cmp",
 		version = false, -- last release is way too old
-		event = "User",
+		event = "InsertEnter",
 		dependencies = {
 			"hrsh7th/cmp-nvim-lsp",
 			"hrsh7th/cmp-buffer",
@@ -63,7 +63,7 @@ return {
 			-- Set up nvim-cmp.
 			local cmp = require("cmp")
 
-			opts = {
+			local opts = {
 				mapping = cmp.mapping.preset.insert({
 					["<C-b>"] = cmp.mapping.scroll_docs(-4),
 					["<C-f>"] = cmp.mapping.scroll_docs(4),
@@ -136,28 +136,18 @@ return {
 			-- Set up lspconfig.
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
 			-- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
-			local lspconfig = require("lspconfig")
-			lspconfig["jedi_language_server"].setup({
-				capabilities = capabilities,
-			})
-			lspconfig["clangd"].setup({
-				capabilities = capabilities,
-			})
-			lspconfig["gopls"].setup({
-				capabilities = capabilities,
-			})
-			lspconfig["lua_ls"].setup({
-				capabilities = capabilities,
-			})
-			lspconfig["texlab"].setup({
-				capabilities = capabilities,
-			})
-			lspconfig["asm_lsp"].setup({
-				capabilities = capabilities,
-			})
-			lspconfig["ansiblels"].setup({
-				capabilities = capabilities,
-			})
+			vim.lsp.enable("clangd")
+			vim.lsp.config("clangd", { capabilities = capabilities })
+			vim.lsp.enable("lua_ls")
+			vim.lsp.config("lua_ls", { capabilities = capabilities })
+			vim.lsp.enable("jedi_language_server")
+			vim.lsp.config("jedi_language_server", { capabilities = capabilities })
+			vim.lsp.enable("gopls")
+			vim.lsp.config("gopls", { capabilities = capabilities })
+			vim.lsp.enable("texlab")
+			vim.lsp.config("texlab", { capabilities = capabilities })
+			vim.lsp.enable("asm_lsp")
+			vim.lsp.config("asm_lsp", { capabilities = capabilities })
 			return opts
 		end,
 	},
