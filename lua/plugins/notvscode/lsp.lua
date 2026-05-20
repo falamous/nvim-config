@@ -13,7 +13,7 @@ return {
 				desc = "Goto Definition",
 			},
 			{ "gr", "<cmd>Telescope lsp_references<cr>", desc = "References", nowait = true },
-			{ "gR", "<cmd>Telescope live_grep<cr>", desc = "Live grep", nowait = true },
+			{ "gR", "<cmd>Telescope live_grep<cr>",      desc = "Live grep",  nowait = true },
 			{
 				"gI",
 				function()
@@ -36,7 +36,7 @@ return {
 		event = "VeryLazy",
 		keys = {
 			{ "gy", vim.lsp.buf.rename, desc = "Goto T[y]pe Definition" },
-			{ "gh", vim.lsp.buf.hover, desc = "Signature Help" },
+			{ "gh", vim.lsp.buf.hover,  desc = "Signature Help" },
 		},
 	},
 	-- auto completion
@@ -163,7 +163,7 @@ return {
 		},
 	},
 	{ "Bilal2453/luvit-meta", lazy = true }, -- optional `vim.uv` typings
-	{ -- optional cmp completion source for require statements and module annotations
+	{                                 -- optional cmp completion source for require statements and module annotations
 		"hrsh7th/nvim-cmp",
 		opts = function(_, opts)
 			opts.sources = opts.sources or {}

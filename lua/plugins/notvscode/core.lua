@@ -108,26 +108,6 @@ return {
 			})
 		end,
 	},
-
-	{
-		'akinsho/bufferline.nvim',
-		event = "VeryLazy",
-		dependencies = 'nvim-tree/nvim-web-devicons',
-		opts = {
-			options = {
-				-- numbers = function(args) return tostring(args.id); end,
-				buffer_close_icon = 'x',
-				close_icon = 'x',
-				modified_icon = '~',
-				left_trunc_marker = '<',
-				right_trunc_marker = '>',
-				show_buffer_icons = true,
-				separator_style = "thin",
-
-			}
-		}
-
-	},
 	{
 		'nvim-lualine/lualine.nvim',
 		event = "VeryLazy",
@@ -136,8 +116,8 @@ return {
 			options = {
 				icons_enabled = true,
 				theme = 'auto',
-				component_separators = { left = '', right = ''},
-				section_separators = { left = '', right = ''},
+				component_separators = { left = '', right = '' },
+				section_separators = { left = '', right = '' },
 				disabled_filetypes = {
 					statusline = {},
 					winbar = {},
@@ -152,18 +132,18 @@ return {
 				}
 			},
 			sections = {
-				lualine_a = {'mode'},
-				lualine_b = {'branch', 'diff', 'diagnostics'},
-				lualine_c = {'filename'},
-				lualine_x = {'encoding', 'fileformat', 'filetype'},
-				lualine_y = {'progress'},
-				lualine_z = {'location'}
+				lualine_a = { 'mode' },
+				lualine_b = { 'branch', 'diff', 'diagnostics' },
+				lualine_c = { 'filename' },
+				lualine_x = { 'encoding', 'fileformat', 'filetype' },
+				lualine_y = { 'progress' },
+				lualine_z = { 'location' }
 			},
 			inactive_sections = {
 				lualine_a = {},
 				lualine_b = {},
-				lualine_c = {'filename'},
-				lualine_x = {'location'},
+				lualine_c = { 'filename' },
+				lualine_x = { 'location' },
 				lualine_y = {},
 				lualine_z = {}
 			},
@@ -176,6 +156,7 @@ return {
 	{
 		"NvChad/nvim-colorizer.lua",
 		config = function()
+			vim.o.termguicolors = true;
 			require("colorizer").setup()
 		end,
 	},
